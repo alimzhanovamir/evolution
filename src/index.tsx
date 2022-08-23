@@ -4,5 +4,5 @@ import './index.scss';
 
 ReactDOM.render(
   <Application />,
-  document.querySelector('#root'),
+  document.querySelector('#app'),
 );

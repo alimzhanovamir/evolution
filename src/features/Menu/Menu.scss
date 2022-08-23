@@ -1,0 +1,18 @@
+@import '../../ui/mixin.scss';
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  list-style: none;
+}
+
+.menu__button-label {
+  margin-right: 8px;
+}
+
+.menu__button {
+  @include button;
+}

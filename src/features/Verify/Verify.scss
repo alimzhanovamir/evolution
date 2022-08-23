@@ -1,0 +1,22 @@
+@import '../../ui/mixin.scss';
+
+.verify {
+  margin: 35px 0 0 0;
+  text-align: center;  
+
+  &__button {
+    @include button;
+
+    &--error {
+      background-color: #f00!important;
+      color: #fff;
+      cursor: auto;
+    }
+  }
+
+  &__code {
+    margin-top: 25px;
+    font-size: 24px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,12 @@
+.application {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #c1c1c1;
+  border-radius: 4px;
+  padding: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  transition: height 1s;
+}
