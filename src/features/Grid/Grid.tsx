@@ -6,6 +6,12 @@ import './Grid.scss';
 
 
 const getSize = (count: number): number => count > 16 ? 16 * 50 : count * 50;
+const createMatrix = (string: string): string[][] => string
+  .trim()
+  .split('\n')
+  .slice(1)
+  .map((line: string) => line.split(''));
+
 
 type GridProps = {
   wss: WebSocket,
@@ -15,7 +21,7 @@ type GridProps = {
 
 export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) => {
 
-  const [map, setMap] = useState(null);
+  const [matrix, setMatrix] = useState(null);
   const [processing, setProcessing] = useState(false);
   const [isRotatedCell, setRotatedCell] = useState('');
 
@@ -33,13 +39,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
       }
       
       if (data.includes('map')) {  
-        const matrix = data
-          .trim()
-          .split('\n')
-          .slice(1)
-          .map((line: string) => line.split(''));
-        
-        setMap(matrix);
+        setMatrix(createMatrix(data));
       }
     };
 
@@ -52,23 +52,23 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
     setRotatedCell('');
     setProcessing(false);
     if (creatingNewGame) setTimeout(() => setCreatingNewGame(false), 1000);
-  }, [map]);  
+  }, [matrix]);  
 
 
   if (creatingNewGame) return <div className='grid-creating'>Creating new game</div>;
 
-  if (!map) return null;
+  if (!matrix) return null;
 
   return (
     <>
       <GridInner
         className={`grid ${processing ? 'grid--processing' : ''}`}
-        width={getSize(map.length)}
-        height={getSize(map.length)}
+        width={getSize(matrix.length)}
+        height={getSize(matrix.length)}
         columnWidth={50}
-        columnCount={map[0].length}
+        columnCount={matrix[0].length}
         rowHeight={50}
-        rowCount={map.length}
+        rowCount={matrix.length}
       >
         {({ columnIndex, rowIndex, style }) => (
           <button 
@@ -77,7 +77,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
             onClick={() => handleClick(columnIndex, rowIndex)}
           >
             <span className='grid-button__inner'>
-              <span className='grid-button__symbol'>{map[rowIndex][columnIndex]}</span>
+              <span className='grid-button__symbol'>{matrix[rowIndex][columnIndex]}</span>
             </span>
           </button>
         )}
