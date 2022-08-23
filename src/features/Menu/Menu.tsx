@@ -10,6 +10,7 @@ type MenuProps = {
 };
 
 export const Menu = memo(({ wss, creatingNewGame, setCreatingNewGame }: MenuProps) => {
+  
   const [level, setLevel] = useState<number | string>(1);
 
   const hanldeChooseLevel = (event: ChangeEvent<HTMLSelectElement>) => {

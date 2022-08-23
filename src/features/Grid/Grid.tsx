@@ -4,9 +4,16 @@ import { Verify } from '../Verify/Verify';
 import './Grid.scss';
 
 
+
 const getSize = (count: number): number => count > 16 ? 16 * 50 : count * 50;
 
-export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: { wss: WebSocket, creatingNewGame: boolean, setCreatingNewGame: (arg: boolean) => void }) => {
+type GridProps = {
+  wss: WebSocket,
+  creatingNewGame: boolean,
+  setCreatingNewGame: (arg: boolean) => void
+};
+
+export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) => {
 
   const [map, setMap] = useState(null);
   const [processing, setProcessing] = useState(false);

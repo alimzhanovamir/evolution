@@ -3,7 +3,10 @@ import './Verify.scss';
 
 
 
-export const Verify = ({ wss }: { wss: WebSocket }) => {
+type VerifyProps = { wss: WebSocket };
+
+export const Verify = ({ wss }: VerifyProps) => {
+  
   const [winCode, setWinCode] = useState(null);
   const [notPassVerify, setNotPassVerify] = useState(false);
   const handleCheckResult = () => wss.send('verify');
@@ -39,7 +42,9 @@ export const Verify = ({ wss }: { wss: WebSocket }) => {
         className={`verify__button ${notPassVerify ? 'verify__button--error' : ''}`}
         disabled={notPassVerify}
         onClick={handleCheckResult}
-      >{notPassVerify ? 'Did not pass the test' : 'Check result'}</button>
+      >
+        {notPassVerify ? 'Did not pass the test' : 'Check result'}
+      </button>
       {winCode && <p className='verify__code'>Your win code: {winCode}</p>}
     </p>
   );
