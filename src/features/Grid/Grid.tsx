@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FixedSizeGrid  as GridInner } from 'react-window';
+import { FixedSizeGrid  as GridConstructor } from 'react-window';
 import { Verify } from '../Verify/Verify';
 import './Grid.scss';
 
@@ -61,7 +61,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
 
   return (
     <>
-      <GridInner
+      <GridConstructor
         className={`grid ${processing ? 'grid--processing' : ''}`}
         width={getSize(matrix.length)}
         height={getSize(matrix.length)}
@@ -81,7 +81,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
             </span>
           </button>
         )}
-      </GridInner>
+      </GridConstructor>
       <Verify wss={wss} />
     </>
   );
