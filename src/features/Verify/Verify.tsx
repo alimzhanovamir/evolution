@@ -1,12 +1,15 @@
-import { memo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Verify.scss';
 
 
 
-type VerifyProps = { wss: WebSocket };
+type VerifyProps = {
+  wss: WebSocket,
+  processing: boolean,
+};
 
-const VerifyComponent = ({ wss }: VerifyProps) => {
+export const Verify = ({ wss, processing }: VerifyProps) => {
    
   const [winCode, setWinCode] = useState(null);
   const [notPassVerify, setNotPassVerify] = useState(false);
@@ -41,7 +44,7 @@ const VerifyComponent = ({ wss }: VerifyProps) => {
     <p className='verify'>
       <button
         className={`verify__button ${notPassVerify ? 'verify__button--error' : ''}`}
-        disabled={notPassVerify}
+        disabled={processing || notPassVerify}
         onClick={handleCheckResult}
       >
         {notPassVerify ? 'Did not pass the test' : 'Check result'}
@@ -51,10 +54,8 @@ const VerifyComponent = ({ wss }: VerifyProps) => {
   );
 };
 
-VerifyComponent.propTypes = {
+Verify.propTypes = {
   wss: PropTypes.shape({
     send: PropTypes.func,
   }).isRequired,
 };
-
-export const Verify = memo(VerifyComponent);

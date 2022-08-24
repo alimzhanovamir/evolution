@@ -7,6 +7,10 @@
   &__button {
     @include button;
 
+    &:disabled:not(&--error) {
+      color: #000;
+    }
+
     &--error {
       background-color: #f00!important;
       color: #fff;

@@ -89,7 +89,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
           </button>
         )}
       </GridConstructor>
-      <Verify wss={wss} />
+      <Verify wss={wss} processing={processing} />
     </>
   );
 };
