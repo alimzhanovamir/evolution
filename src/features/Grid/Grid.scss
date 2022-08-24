@@ -2,13 +2,18 @@
 
 .grid {
   position: relative;
+  background-color: #fff;
   border-radius: 4px;
   margin: 50px auto 0;
   overflow: hidden;
   box-shadow: 0 2px 15px 5px rgb(107, 107, 107);
 
   &--processing {
-    pointer-events: none;
+    cursor: progress;
+    
+    & > div {
+      pointer-events: none;
+    }
   }
 
   &-creating {
@@ -18,7 +23,7 @@
     animation-iteration-count: infinite;
     animation-name: placeholder;
     animation-timing-function: linear;
-    background: linear-gradient(to right, #c1c1c1 10%, rgb(159, 121, 207) 40%, #c1c1c1 50%);
+    background: linear-gradient(to right, #c1c1c1 10%, #9f79cf 40%, #c1c1c1 50%);
     background-size: 1000px 640px;
     margin: 50px -50px 0;
     padding: 20px 40px;
@@ -33,19 +38,23 @@
     100%{
         background-position: 468px 0
     }
-}
-
+  }
 
   &-button {
     display: block;
-    border: 1px solid #c1c1c1;
+    background-color: #e4e4e4;
+    border: 1px solid #fff;
     overflow: hidden;
     cursor: pointer;
     transition: background-color .3s;
     will-change: background-color;
     
     &:hover {
-      background-color: rgb(159, 121, 207);
+      background-color: #9f79cf;
+    }
+
+    &--rotated {
+      background-color: #fff;
     }
 
     &--rotated &__symbol {
@@ -58,7 +67,6 @@
       50% {transform: scale(2);}
       100% {transform: scale(4);}
     }
-  
 
     &__inner {
       position: absolute;
