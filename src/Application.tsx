@@ -31,7 +31,7 @@ export const Application = () => {
   };
 
   return (
-    <div className='application'>
+    <div className={`application ${creatingNewGame ? 'application--crating' : ''}`}>
       <Menu {...childProps} />
       <Grid {...childProps} />
     </div>
