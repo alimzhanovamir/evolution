@@ -7,6 +7,8 @@
 - `JustWarmingUp`
 
 ### Limitations:
+- Doesn't support IE(maybe =))
+
 - Required monitor width more than 960px and height more than 1080px
 
 - When your chose game level above 1(or number of field columns and rows more than 16) application rendered field with scrollbars
