@@ -1,6 +1,22 @@
 # Evolution test project
 
+## How to play:
 
+- ### How start game:
+  1. Choose level from dropdown
+  2. Click button "New game"
+  3. Wait for the game to be created
+  
+- ### How to rotate cube:
+  - Click on cell to rotate it
+
+- ### How to check result:
+  - Click button "Check result" and wait
+    * If you pass the verification, you will see the code below the "Check Result" button
+    * If you did not pass the test, you will see the inscription on the button "Test Failed"
+
+
+## Other descriptions
 
 ### Level password:
 
