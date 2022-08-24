@@ -1,4 +1,4 @@
-import { ChangeEvent, memo, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import './Menu.scss';
 
 
@@ -9,7 +9,7 @@ type MenuProps = {
   setCreatingNewGame: (arg: boolean) => void
 };
 
-export const Menu = memo(({ wss, creatingNewGame, setCreatingNewGame }: MenuProps) => {
+export const Menu = ({ wss, creatingNewGame, setCreatingNewGame }: MenuProps) => {
   
   const [level, setLevel] = useState<number | string>(1);
 
@@ -40,4 +40,4 @@ export const Menu = memo(({ wss, creatingNewGame, setCreatingNewGame }: MenuProp
       </li>
     </ul>
   );
-});
+};
