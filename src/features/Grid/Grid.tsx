@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, CSSProperties  } from 'react';
+import PropTypes from 'prop-types';
 import { FixedSizeGrid  as GridConstructor } from 'react-window';
 import { Verify } from '../Verify/Verify';
 import './Grid.scss';
@@ -17,6 +18,12 @@ type GridProps = {
   wss: WebSocket,
   creatingNewGame: boolean,
   setCreatingNewGame: (arg: boolean) => void
+};
+
+type GridContructorArgs = {
+  columnIndex: number,
+  rowIndex: number,
+  style: CSSProperties,
 };
 
 export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) => {
@@ -70,7 +77,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
         rowHeight={50}
         rowCount={matrix.length}
       >
-        {({ columnIndex, rowIndex, style }) => (
+        {({ columnIndex, rowIndex, style }: GridContructorArgs) => (
           <button 
             className={`grid-button ${isRotatedCell === `${columnIndex}-${rowIndex}` ? 'grid-button--rotated' : '' }`}
             style={style}
@@ -85,4 +92,12 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
       <Verify wss={wss} />
     </>
   );
+};
+
+Grid.propTypes = {
+  wss: PropTypes.shape({
+    send: PropTypes.func,
+  }).isRequired,
+  creatingNewGame: PropTypes.bool.isRequired,
+  setCreatingNewGame: PropTypes.func.isRequired,
 };

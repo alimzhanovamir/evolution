@@ -1,12 +1,13 @@
 import { memo, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './Verify.scss';
 
 
 
 type VerifyProps = { wss: WebSocket };
 
-export const Verify = memo(({ wss }: VerifyProps) => {
-  
+const VerifyComponent = ({ wss }: VerifyProps) => {
+   
   const [winCode, setWinCode] = useState(null);
   const [notPassVerify, setNotPassVerify] = useState(false);
   const handleCheckResult = () => wss.send('verify');
@@ -48,4 +49,12 @@ export const Verify = memo(({ wss }: VerifyProps) => {
       {winCode && <p className='verify__code'>Your win code: {winCode}</p>}
     </p>
   );
-});
+};
+
+VerifyComponent.propTypes = {
+  wss: PropTypes.shape({
+    send: PropTypes.func,
+  }).isRequired,
+};
+
+export const Verify = memo(VerifyComponent);

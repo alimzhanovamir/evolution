@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from 'react';
+import PropTypes from 'prop-types';
 import './Menu.scss';
 
 
@@ -40,4 +41,12 @@ export const Menu = ({ wss, creatingNewGame, setCreatingNewGame }: MenuProps) =>
       </li>
     </ul>
   );
+};
+
+Menu.propTypes = {
+  wss: PropTypes.shape({
+    send: PropTypes.func,
+  }).isRequired,
+  creatingNewGame: PropTypes.bool.isRequired,
+  setCreatingNewGame: PropTypes.func.isRequired,
 };
