@@ -2,7 +2,7 @@
 
 ## How to play:
 
-- ### How start game:
+- ### How to start game:
   1. Choose level from dropdown
   2. Click button "New game"
   3. Wait for the game to be created
@@ -34,7 +34,7 @@
 ### Design:
 - Used react-window library for improve perfomance
 
-### How to launch app:
+### How to launch app localy:
 
 - Development mode:
 
