@@ -47,9 +47,9 @@ export const Verify = ({ wss, processing }: VerifyProps) => {
         disabled={processing || notPassVerify}
         onClick={handleCheckResult}
       >
-        {notPassVerify ? 'Did not pass the test' : 'Check result'}
+        {notPassVerify ? 'Тест не пройдет' : 'Проверить результат'}
       </button>
-      {winCode && <p className='verify__code'>Your win code: {winCode}</p>}
+      {winCode && <p className='verify__code'>Ваш выигрышный код: {winCode}</p>}
     </p>
   );
 };

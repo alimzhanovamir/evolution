@@ -62,7 +62,7 @@ export const Grid = ({ wss, creatingNewGame, setCreatingNewGame }: GridProps) =>
   }, [matrix]);  
 
 
-  if (creatingNewGame) return <div className='grid-creating'>Creating new game</div>;
+  if (creatingNewGame) return <div className='grid-creating'>Создание новой игры</div>;
 
   if (!matrix) return null;
 

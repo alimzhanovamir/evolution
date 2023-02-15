@@ -26,7 +26,7 @@ export const Menu = ({ wss, creatingNewGame, setCreatingNewGame }: MenuProps) =>
   return (
     <ul className='menu'>
       <li className='menu__item'>
-        <label className='menu__button-label' htmlFor='level'>Level:</label>
+        <label className='menu__button-label' htmlFor='level'>Уровень:</label>
         <select className='menu__button' disabled={creatingNewGame} name="" id="level" onChange={hanldeChooseLevel}>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -37,7 +37,7 @@ export const Menu = ({ wss, creatingNewGame, setCreatingNewGame }: MenuProps) =>
         </select>
       </li>
       <li className='menu__item'>
-        <button className='menu__button' disabled={creatingNewGame} onClick={handleStart}>New game</button>
+        <button className='menu__button' disabled={creatingNewGame} onClick={handleStart}>Начать игру</button>
       </li>
     </ul>
   );
