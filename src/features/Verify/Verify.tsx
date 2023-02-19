@@ -42,14 +42,19 @@ export const Verify = ({ wss, processing }: VerifyProps) => {
 
   return (
     <p className='verify'>
-      <button
-        className={`verify__button ${notPassVerify ? 'verify__button--error' : ''}`}
-        disabled={processing || notPassVerify}
-        onClick={handleCheckResult}
-      >
-        {notPassVerify ? 'Тест не пройдет' : 'Проверить результат'}
-      </button>
-      {winCode && <p className='verify__code'>Ваш выигрышный код: {winCode}</p>}
+      {
+        winCode
+        ? <p className='verify__code'>Ваш выигрышный код: JustWarmingUp</p>
+        : (
+          <button
+            className={`verify__button ${notPassVerify ? 'verify__button--error' : ''}`}
+            disabled={processing || notPassVerify}
+            onClick={handleCheckResult}
+          >
+            {notPassVerify ? 'Тест не пройден' : 'Проверить результат'}
+          </button>
+        )
+      }
     </p>
   );
 };
