@@ -6,7 +6,7 @@ import './Grid.scss';
 
 
 
-const getSize = (count: number): number => count > 16 ? 16 * 50 : count * 50;
+const getSize = (count: number): number => count > 16 ? 8 * 50 : count * 50;
 const createMatrix = (string: string): string[][] => string
   .trim()
   .split('\n')
